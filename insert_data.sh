@@ -41,14 +41,14 @@ fi
       fi
 #get new opponent id
 OPPONENT_ID=$($PSQL "SELECT team_id FROM teams WHERE name='$OPPONENT'")
-
+fi
 #insert game data
 INSERT_GAME_DATA=$($PSQL "INSERT INTO games(year, round, winner_id, opponent_id, winner_goals, opponent_goals) VALUES('$YEAR', '$ROUND', '$WINNER_ID', '$OPPONENT_ID', '$WINNER_GOALS', '$OPPONENT_GOALS')")
 if [[ $INSERT_GAME_DATA == "INSERT 0 1" ]]
   then
     echo -e "\nInserted into games, $YEAR $ROUND $WINNER_ID $OPPONENT_ID $WINNER_GOALS $OPPONENT_GOALS"
     fi
-  fi
+  
   
 fi
 
